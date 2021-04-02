@@ -20,6 +20,26 @@ Page({
   onLoad() {
    
   },
+  uploadFile(e) {
+   
+    wx.chooseImage({
+      success (res) {
+        const tempFilePaths = res.tempFilePaths
+        wx.uploadFile({
+          url: 'https://127.0.0.1:8077/api/upload', //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData: {
+            'user': 'test'
+          },
+          success (res){
+            const data = res.data
+            //do something
+          }
+        })
+      }
+    })
+  },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
     wx.getUserProfile({
@@ -30,7 +50,7 @@ Page({
         wx.login({
           success: function(login_res) {
           wx.request({
-            url: 'http://127.0.0.1:8077/api/wxuserinfo',
+            url: 'https://127.0.0.1:8077/api/wxuserinfo',
             method: 'POST',
             header: {
               'content-type': 'application/x-www-form-urlencoded'
@@ -84,7 +104,7 @@ Page({
               console.log('服务器99');
               console.log('info_res');
               wx.request({
-                url: 'http://api.microspicy.com:8077/wx/login',
+                url: 'https://127.0.0.1:8077/wx/login',
                 method: 'POST',
                 header: {
                   'content-type': 'application/x-www-form-urlencoded'

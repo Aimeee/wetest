@@ -6,6 +6,7 @@
 
   <view class="intro">
   <button open-type="getUserProfile" bindtap="getUserProfile">getUserProfile</button>
+  <button open-type="uploadFile" bindtap="uploadFile">uploadFile</button>
 </view>
 
 
