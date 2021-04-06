@@ -30,7 +30,7 @@ Page({
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {
-            'user': 'test'
+            'fileInfo':'{"user":"test","maoid":"maode888","uploader":"openiddddd","file_type":1,"file_name":"tupian","file_extname":"jpg","size":"10","file_desc":"描述信息很牛逼"}'
           },
           success (res){
             const data = res.data
